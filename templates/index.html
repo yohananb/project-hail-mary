@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hail Mary - Debugger</title>
+</head>
+<body>
+    <h1>Debugging Assistant</h1>
+    <p>Describe your error below and get a diagnosis:</p>
+
+    <form method="POST">
+        <textarea name="error_input" rows="10" cols="60" placeholder="Paste your error here..."></textarea>
+        <br><br>
+        <button type"submit"Diagnose</button>
+        </form>
+        
+        {% if diagnosis %}
+            <h2>Diagnosis:</h2>
+            <p>{{ diagnosis }}</p>
+        {% endif %}
+</body>
+</html>
+        <input type="submit" value="Get Diagnosis">
+    </form>
+</body>
