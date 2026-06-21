@@ -13,7 +13,10 @@ def index():
     diagnosis = None
     
     if request.method == "POST":
-        user_input = request.form["error_input"]
+        user_input = request.form["error_input"].strip()
+
+        if not user_input:
+            return render_template("index.html", diagnosis="Please enter a valid error message or question before submitting.")
 
         classification = client.messages.create(
             model="claude-opus-4-8",

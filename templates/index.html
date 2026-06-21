@@ -1,24 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Hail Mary - Debugger</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Hail Mary - Debugger</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <h1>Debugging Assistant</h1>
-    <p>Describe your error below and get a diagnosis:</p>
+<body class="bg-gray-950 min-h-screen text-white flex items-center justify-center p-6">
 
-    <form method="POST">
-        <textarea name="error_input" rows="10" cols="60" placeholder="Paste your error here..."></textarea>
-        <br><br>
-        <button type"submit"Diagnose</button>
-        </form>
+    <div class="w-full max-w-2xl">
         
+        <h1 class="text-4xl font-bold mb-2">🛠 Debugging Assistant</h1>
+        <p class="text-gray-400 mb-6">Paste your error or describe your problem. Claude will diagnose it.</p>
+
+        <form method="POST">
+            <textarea 
+                name="error_input" 
+                rows="10" 
+                placeholder="Paste your error here..."
+                class="w-full bg-gray-900 border border-gray-700 rounded-xl p-4 text-sm font-mono text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 resize-none"
+            ></textarea>
+
+            <button 
+                type="submit"
+                class="mt-4 w-full bg-orange-600 hover:bg-orange-500 text-white font-semibold py-3 rounded-xl transition-colors duration-200"
+            >
+                Diagnose
+            </button>
+        </form>
+
         {% if diagnosis %}
-            <h2>Diagnosis:</h2>
-            <p>{{ diagnosis }}</p>
+        <div class="mt-8">
+            <h2 class="text-xl font-semibold mb-3 text-orange-400">Diagnosis</h2>
+            <div class="bg-gray-900 border border-gray-700 rounded-xl p-6 font-mono text-sm leading-relaxed whitespace-pre-wrap text-gray-200">
+                {{ diagnosis }}
+            </div>
+        </div>
         {% endif %}
+
+    </div>
+
 </body>
 </html>
-        <input type="submit" value="Get Diagnosis">
-    </form>
-</body>
