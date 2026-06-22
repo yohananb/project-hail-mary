@@ -6,7 +6,8 @@ from flask import Flask, render_template, request
 load_dotenv()
 
 app = Flask(__name__)
-client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+api_key = os.environ.get("ANTHROPIC_API_KEY")
+client = anthropic.Anthropic(api_key=api_key)
 
 @app.route("/", methods=["GET", "POST"])
 def index():
