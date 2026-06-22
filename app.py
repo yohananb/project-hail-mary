@@ -11,6 +11,7 @@ client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
 @app.route("/", methods=["GET", "POST"])
 def index():
     diagnosis = None
+    error_type = None
     
     if request.method == "POST":
         user_input = request.form["error_input"].strip()
@@ -50,7 +51,7 @@ def index():
         
         diagnosis = message.content[0].text
     
-    return render_template("index.html", diagnosis=diagnosis)
+    return render_template("index.html", diagnosis=diagnosis, error_type=error_type)
 
 if __name__ == "__main__":
     app.run(debug=True)

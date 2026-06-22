@@ -31,7 +31,12 @@
 
         {% if diagnosis %}
         <div class="mt-8">
-            <h2 class="text-xl font-semibold mb-3 text-orange-400">Diagnosis</h2>
+
+            <div class="mb-3 flex items-center gap-3">
+    <h2 class="text-xl font-semibold text-orange-400">Diagnosis</h2>
+    <span class="text-xs bg-gray-800 border border-gray-600 text-gray-300 px-3 py-1 rounded-full">{{ error_type }}</span>
+</div>
+           
             <div class="bg-gray-900 border border-gray-700 rounded-xl p-6 font-mono text-sm leading-relaxed whitespace-pre-wrap text-gray-200">
                 {{ diagnosis }}
             </div>
